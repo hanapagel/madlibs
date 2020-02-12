@@ -5,5 +5,21 @@
 </head>
 <body>
     Hi {{ person }}! I think you're {{ compliment }}!
+
+    <h1>Now for some fun...</h1>
+    <h3>Would you like to play a game?</h3>
+    
+    <form action="/game">
+        <input type="radio" name="game" value="True">
+        <label>Yes</label>
+
+        <input type="radio" name="game" value="False">
+        <label>No</label>
+
+        <br>
+        <br>
+        <input type="submit">
+    </form>
+
 </body>
 </html>
