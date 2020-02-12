@@ -41,28 +41,36 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
+
 @app.route('/game')
 def show_madlib_form():
     """Play a game with the user."""
 
-    game = bool(request.args.get("game"))
+    game = request.args.get("game")
 
-    if game is True:
+    if game == "True":
         return render_template("game.html")
-    elif game is False:
+    elif game == "False":
         return render_template("goodbye.html")
 
-# @app.route('/madlib')
-# def show_madlib():
-#     """Display the final MadLib."""
+# TODO: Does a checkbox return a boolean? A string? What's the default
+# value of radio buttons and checkboxes?
 
-# person = request.args.get('person')
-# color = request.args.get('color')
-# noun = request.args.get('noun')
-# adjective = request.args.get('adjective')
 
-# TODO: Insert variables defined above into MadLibs text. Pass to new HTML?
-# TODO: Implement forms for person, color, noun, adjective in game.html
+@app.route('/madlib')
+def show_madlib():
+    """Display the final MadLib."""
+
+    person = request.args.get('person')
+    color = request.args.get('color')
+    noun = request.args.get('noun')
+    adjective = request.args.get('adjective')
+
+    return render_template("madlib.html", person=person, color=color,
+                           noun=noun, adjective=adjective)
+
+# TODO: How to pass {{name}} variable from hello page to greet and madlib?
+
 
 if __name__ == '__main__':
     # Setting debug=True gives us error messages in the browser and also
