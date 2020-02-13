@@ -53,9 +53,6 @@ def show_madlib_form():
     elif game == "False":
         return render_template("goodbye.html")
 
-# TODO: Does a checkbox return a boolean? A string? What's the default
-# value of radio buttons and checkboxes?
-
 
 @app.route('/madlib')
 def show_madlib():
@@ -68,6 +65,21 @@ def show_madlib():
 
     return render_template("madlib.html", person=person, color=color,
                            noun=noun, adjective=adjective)
+
+@app.route('/madlib/response')
+def respond():
+    """Respond to the enemy's action, as desired by user."""
+
+    response = request.args.get('response')
+
+    if response == "confront":
+        return render_template("confront.html")
+
+    if response == "repair":
+        return render_template("repair.html")
+
+    if response == "nothing":
+        return render_template("nothing.html")
 
 # TODO: How to pass {{name}} variable from hello page to greet and madlib?
 

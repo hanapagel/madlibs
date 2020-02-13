@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
 <head>
-  <title>{{Name}}'s Madlib</title>
+  <title>Your Madlib</title>
 </head>
 <body>
 
 <h1>Enjoy Your Madness</h1>
 
-    <p> I'm sorry, {{Name}}. I regret to inform you that yesterday, {{person}} 
+    <p> I'm sorry. I regret to inform you that yesterday, {{person}} 
         happened upon your {{noun}} while they were wandering about your 
         neighborhood. Recognizing the distinct {{color}} glow of your aura 
         clinging to the object, they immediately identified it as yours as 
@@ -15,5 +15,22 @@
 
     <p> How {{adjective}}! </p>
 
+    <form action="/madlib/response">
+        <label>What would you like to do you do next?</label>
+        <br>
+
+        <input type="checkbox" name="response" value="confront">
+        <label>Confront {{person}}</label>
+
+        <input type="checkbox" name="response" value="repair">
+        <label>Repair {{noun}}</label>
+
+        <input type="checkbox" name="response" value="nothing">
+        <label>Nothing</label>
+        <br>
+
+        <input type="submit">
+
+    </form>
 </body>
 </html>
